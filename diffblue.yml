@@ -1,0 +1,29 @@
+branch: master
+language: c
+buildCmd: 'sed -i.bak "s/CC        = gcc/CC        = goto-cc/g" Makefile; make'
+testCmd: 
+reportFile: 
+timeout: 3600
+memout: 8000000000
+cbmcArguments: 
+units:
+  - target:
+      - sourceDir: ./
+        file: minisat
+        dir: ./
+    libs: []
+    context: []
+tool:
+  language: c
+  cbmcArguments: >-
+    --cover location --gen-c-test-case --c-disable-mocks
+    --assertions-as-assumptions --unwind 9
+  timeout: 300
+  memout: 4000000000
+  units:
+    - target:
+        - sourceDir: ./
+          file: minisat
+          dir: ./
+      libs: []
+      context: []
