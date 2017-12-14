@@ -27,3 +27,4 @@ tool:
           dir: ./
       libs: []
       context: []
+skipDifferentialAnalysis: true
